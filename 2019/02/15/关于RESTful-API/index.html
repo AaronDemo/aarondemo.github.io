@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Aaron&#39;s Blog</title>
+    <title>关于RESTful API · Aaron&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Aaron&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">关于RESTful API</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Aaron's Blog.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            关于RESTful API
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="API开发">API开发</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.7k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/02/15</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,42 +399,124 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/13/使用Docker-Swarm搭建分布式爬虫集群/">
-            
-                <span>使用Docker Swarm搭建分布式爬虫集群</span>
-        </a>
-        <div class="abstract-content">
-            <blockquote>
-<p>本文转载自公众号  未闻Code</p>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>因为自己也是一名后端程序员，所以了解一下RESTful API是非常有必要的。</p>
+<h4 id="什么是REST？"><a href="#什么是REST？" class="headerlink" title="什么是REST？"></a>什么是REST？</h4><p><strong>REST</strong> – <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer 直接翻译：表现层状态转移。</p>
+<a id="more"></a>
+<h4 id="简洁版"><a href="#简洁版" class="headerlink" title="简洁版"></a>简洁版</h4><ol>
+<li>REST描述的是在网络中client和server的一种交互形式；REST本身不实用，实用的是如何设计 RESTful API（REST风格的网络接口）；</li>
+<li>Server提供的RESTful API中，URL中只使用名词来指定资源，原则上不使用动词。“资源”是REST架构或者说整个网络处理的核心。比如：<br><a href="https://link.zhihu.com/?target=http%3A//api.qc.com/v1/newsfeed" target="_blank" rel="noopener">http://api.qc.com/v1/newsfeed</a>: 获取某人的新鲜;<br><a href="https://link.zhihu.com/?target=http%3A//api.qc.com/v1/friends" target="_blank" rel="noopener">http://api.qc.com/v1/friends</a>: 获取某人的好友列表;<br><a href="https://link.zhihu.com/?target=http%3A//api.qc.com/v1/profile" target="_blank" rel="noopener">http://api.qc.com/v1/profile</a>: 获取某人的详细信息;3. 用HTTP协议里的动词来实现资源的添加，修改，删除等操作。即通过HTTP动词来实现资源的状态扭转：<br>GET    用来获取资源，<br>POST  用来新建资源（也可以用于更新资源），<br>PUT    用来更新资源，<br>DELETE  用来删除资源。比如：<br>DELETE <a href="https://link.zhihu.com/?target=http%3A//api.qc.com/v1/friends" target="_blank" rel="noopener">http://api.qc.com/v1/</a>friends: 删除某人的好友 （在http parameter指定好友id）<br>POST <a href="https://link.zhihu.com/?target=http%3A//api.qc.com/v1/friends" target="_blank" rel="noopener">http://api.qc.com/v1/</a>friends: 添加好友<br>UPDATE <a href="https://link.zhihu.com/?target=http%3A//api.qc.com/v1/profile" target="_blank" rel="noopener">http://api.qc.com/v1/profile</a>: 更新个人资料</li>
+</ol>
+<p><img src="/2019/02/15/关于RESTful-API/7405939b62a73f28846533de08db3a80_hd.jpg" alt="img"></p>
+<ol start="4">
+<li><p>Server和Client之间传递某资源的一个表现形式，比如用JSON，XML传输文本，或者用JPG，WebP传输图片等。当然还可以压缩HTTP传输时的数据（on-wire data compression）。</p>
+</li>
+<li><p>用 HTTP Status Code传递Server的状态信息。比如最常用的 200 表示成功，500 表示Server内部错误等。主要信息就这么点。最后是要解放思想，Web端不再用之前典型的PHP或JSP架构，而是改为前段渲染和附带处理简单的商务逻辑（比如AngularJS或者BackBone的一些样例）。Web端和Server只使用上述定义的API来传递数据和改变数据状态。格式一般是JSON。iOS和Android同理可得。由此可见，Web，iOS，Android和第三方开发者变为平等的角色通过一套API来共同消费Server提供的服务。</p>
+</li>
+</ol>
+<h4 id="详细版"><a href="#详细版" class="headerlink" title="详细版"></a>详细版</h4><p>先说REST名称REST – REpresentational State Transfer</p>
+<p>首先，之所以晦涩是因为前面主语被去掉了，全称是 Resource Representational State Transfer：通俗来讲就是：资源在网络中以某种表现形式进行状态转移。分解开来：Resource：资源，即数据（前面说过网络的核心）。比如 newsfeed，friends等；Representational：某种表现形式，比如用JSON，XML，JPEG等；</p>
+<p>State Transfer：<strong>状态变化</strong>。</p>
+<p>通过HTTP动词实现。REST的出处Roy Fielding的毕业论文。这哥们参与设计HTTP协议，也是Apache Web Server项目（可惜现在已经是 nginx 的天下）的co-founder。PhD的毕业学校是 UC Irvine，Irvine在加州，有着充裕的阳光和美丽的海滩，是著名的富人区。Oculus VR 的总部就坐落于此（虚拟现实眼镜，被FB收购，CTO为Quake和Doom的作者 John Carmack）。众说周知，论文都是晦涩难懂的。当年在CMU读书的时候，很多课程都会安排每周两篇的Paper review。现在回想起来每次写Paper review都是我最为痛苦的时候。REST这篇博士论文毫无疑问更甚。</p>
+<p>论文地址：<a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" target="_blank" rel="noopener">Architectural Styles and the Design of Network-based Software Architectures</a></p>
+<p>REST章节：<a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank" rel="noopener">Fielding Dissertation: CHAPTER 5: Representational State Transfer (REST)</a></p>
+<p>RESTful API实用的是如何正确地理解 RESTful架构和设计好RESTful API。首先为什么要用RESTful结构呢？大家都知道”古代”网页是前端后端融在一起的，比如之前的PHP，JSP等。在之前的桌面时代问题不大，但是近年来移动互联网的发展，各种类型的Client层出不穷，RESTful可以通过一套统一的接口为 Web，iOS和Android提供服务。另外对于广大平台来说，比如Facebook platform，微博开放平台，微信公共平台等，它们不需要有显式的前端，只需要一套提供服务的接口，于是RESTful更是它们最好的选择。在RESTful架构下：</p>
+<p><img src="/2019/02/15/关于RESTful-API/06ee404783540f0af299042057738a99_hd.jpg" alt="img"></p>
+<h5 id="Server的API如何设计才满足RESTful要求"><a href="#Server的API如何设计才满足RESTful要求" class="headerlink" title="Server的API如何设计才满足RESTful要求?"></a><strong>Server的API如何设计才满足RESTful要求?</strong></h5><p>首先是简洁版里面的那几点。外加一些附带的 best practices：</p>
+<ol>
+<li><p>URL root: example.org/api/v1/  </p>
+<p>​                 api.example.com/v1/</p>
+</li>
+<li><p>API versioning:可以放在URL里面，也可以用HTTP的header：/api/v1/</p>
+</li>
+<li><p>URI使用名词而不是动词，且推荐用复数。</p>
+<p>BAD</p>
+<p>/getProducts</p>
+<p>/listOrders</p>
+<p>/retrieveClientByOrder?orderId=1</p>
+<p>GOOD</p>
+<p>GET /products : will return the list of all products</p>
+<p>POST /products : will add a product to the collection</p>
+<p>GET /products/4 : will retrieve product #4</p>
+<p>PATCH/PUT /products/4 : will update product #4</p>
+<p>保证  HEAD 和 GET 方法是安全的，不会对资源状态有所改变（污染）。比如严格杜绝如下情况：GET /deleteProduct?id=1</p>
+</li>
+<li><p>资源的地址推荐用嵌套结构。比如：GET /friends/10375923/profileUPDATE /profile/primaryAddress/city</p>
+</li>
+<li><p>警惕返回结果的大小。如果过大，及时进行分页（pagination）或者加入限制（limit）。HTTP协议支持分页（Pagination）操作，在Header中使用 Link 即可。</p>
+</li>
+<li><p>使用正确的HTTP Status Code表示访问状态：HTTP/1.1: Status Code Definitions</p>
+</li>
+<li><p>在返回结果用明确易懂的文本（String。注意返回的错误是要给人看的，避免用 1001 这种错误信息），而且适当地加入注释。</p>
+</li>
+<li><p>关于安全：自己的接口就用https，加上一个key做一次hash放在最后即可。考虑到国情，HTTPS在无线网络里不稳定，可以使用Application Level的加密手段把整个HTTP的payload加密。有兴趣的朋友可以用手机连上电脑的共享Wi-Fi，然后用Charles监听微信的网络请求（发照片或者刷朋友圈）。</p>
+<p>如果是平台的API，可以用成熟但是复杂的OAuth2，新浪微博这篇：授权机制说明</p>
+</li>
+</ol>
+<h4 id="各端的具体实现"><a href="#各端的具体实现" class="headerlink" title="各端的具体实现"></a>各端的具体实现</h4><pre><code>如上面的图所示，Server统一提供一套RESTful API，web+ios+android作为同等公民调用API。各端发展到现在，都有一套比较成熟的框架来帮开发者事半功倍。
+</code></pre><p>   <strong>Server</strong> </p>
+<pre><code> 推荐： Spring MVC 或者 Jersey 或者 Play Framework
+
+ 教程：[Getting Started · Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+
+**Android**
+
+ 推荐： RetroFit ( Retrofit ) 或者 Volley ( mcxiaoke/android-volley · GitHub Google官方的被block，就不贴了 )
+
+  教程：[快速Android开发系列网络篇之Retrofit](http://www.cnblogs.com/angeldevil/p/3757335.html)
+</code></pre><p>   <strong>iOS</strong> </p>
+<pre><code>推荐：RestKit ( [RestKit/RestKit · GitHub](RestKit/RestKit · GitHub) )
+
+教程：[Developing RESTful iOS Apps with RestKit](https://code.tutsplus.com/tutorials/developing-restful-ios-apps-with-restkit--mobile-4524)
+</code></pre><p>   <strong>Web</strong></p>
+<p>   推荐随便搞！可以用重量级的AngularJS，也可以用轻量级 Backbone + jQuery 等。</p>
+<p><strong>总而言之</strong></p>
+<p>RESTful通俗来讲就是</p>
+<p>看Url就知道要什么<br>看http method就知道干什么<br>看http status code就知道结果如何</p>
+<blockquote>
+<p>参考：<br>[1]: <a href="https://link.zhihu.com/?target=http%3A//bourgeois.me/rest/" target="_blank" rel="noopener">Some REST best practices</a><br>[2]: <a href="https://link.zhihu.com/?target=https%3A//developer.github.com/v3/" target="_blank" rel="noopener">GitHub API v3</a><br>[3]: <a href="https://link.zhihu.com/?target=https%3A//github.com/tlhunter/consumer-centric-api-design" target="_blank" rel="noopener">tlhunter/consumer-centric-api-design · GitHub</a></p>
 </blockquote>
-<p>在爬虫开发过程中，你肯定遇到过需要把爬虫部署在多个服务器上面的情况。此时你是怎么操作的呢？逐一SSH登录每个服务器，使用git拉下代码，然后运行？代码修改了，于是又要一个服务器一个服务器登录上去依次更新？</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/13</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="爬虫">爬虫</a>
-    
-</div>
-            
-        </div>
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://aarondemo.github.io">Aaron Zhu</a>
+            </p><p>原文链接：<a href="http://aarondemo.github.io/2019/02/15/关于RESTful-API/">http://aarondemo.github.io/2019/02/15/关于RESTful-API/</a>
+            </p><p>发表日期：<a href="http://aarondemo.github.io/2019/02/15/关于RESTful-API/">February 15th 2019, 11:51:17 am</a>
+            </p><p>更新日期：<a href="http://aarondemo.github.io/2019/02/15/关于RESTful-API/">February 15th 2019, 2:28:44 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/02/14/什么是冒泡排序/" title="什么是冒泡排序">
+                    <div class="prevTitle">什么是冒泡排序</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -465,6 +608,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是REST？"><span class="toc-number">1.</span> <span class="toc-text">什么是REST？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简洁版"><span class="toc-number">2.</span> <span class="toc-text">简洁版</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#详细版"><span class="toc-number">3.</span> <span class="toc-text">详细版</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Server的API如何设计才满足RESTful要求"><span class="toc-number">3.1.</span> <span class="toc-text">Server的API如何设计才满足RESTful要求?</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#各端的具体实现"><span class="toc-number">4.</span> <span class="toc-text">各端的具体实现</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -639,6 +800,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
