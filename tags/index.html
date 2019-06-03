@@ -397,7 +397,7 @@
 	  repo: 'aarondemo.github.io',
 	  owner: 'aarondemo',
 	  admin: ['aarondemo'],
-	  id: location.pathname,      // Ensure uniqueness and length less than 50
+	  id: md5(window.location.pathname),      // Ensure uniqueness and length less than 50
 	  distractionFreeMode: false  // Facebook-like distraction free mode
 	})
 	gitalk.render('gitalk-container')
@@ -508,6 +508,8 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
